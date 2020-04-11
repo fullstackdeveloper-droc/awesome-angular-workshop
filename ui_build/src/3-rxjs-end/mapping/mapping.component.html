@@ -1,0 +1,28 @@
+<h3>Map Operators in Action</h3>
+
+<label>
+  Map Operator:
+  <select [(ngModel)]="mapOpName" (change)="reset()" style="font-size: 1em">
+    <option>concatMap</option>
+    <option>exhaustMap</option>
+    <option>mergeMap</option>
+    <option>switchMap</option>
+  </select>
+</label>
+
+<ng-container *ngIf="results$ | async as results">
+  <div style="margin: 0.5em 0">
+    <button mat-raised-button color="primary" type="button" matTooltip="Drop a kitten"
+      (click)="click$.next()">Drop</button>
+
+    Clicks: {{results.clicks}}
+    Dropped: {{results.dropped}}
+    Complete: {{results.completed}}
+
+    <button mat-raised-button color="accent" type="button" matTooltip="Reset results"
+      (click)="reset()">Reset</button>
+  </div>
+  <svg #svg width="600" height="500" style="border: 1px solid gray"></svg>
+<ng-container>
+
+<p style="color: gray; font-size: .7em; font-style: italic">Example courtesy of Ben Lesh</p>
